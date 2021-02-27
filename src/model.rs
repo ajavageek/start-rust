@@ -1,12 +1,12 @@
 #[derive(Debug, PartialEq)]
-pub struct Super {
-    pub super_name: String,
-    pub real_name: String,
+pub struct Super<'a> {
+    pub super_name: &'a str,
+    pub real_name: &'a str,
     pub power: u16,
 }
 
 #[derive(Debug, PartialEq)]
-pub struct Group {
-    pub name: String,
-    pub members: Vec<Super>,
+pub struct Group<'a> {
+    pub name: &'a str,
+    pub members: Vec<Super<'a>>,
 }
