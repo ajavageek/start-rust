@@ -18,3 +18,25 @@ pub mod j {
             .collect()
     }
 }
+
+pub mod k {
+    use std::collections::HashMap;
+    use crate::model::{Super, Alignment, Alignment::{Good, Evil}};
+    use std::ops::Deref;
+
+    pub fn group_sidekicks_by_alignment<'a>(supers: &'a Vec<Super<'a>>) -> HashMap<Alignment, Vec<&'a Super<'a>>>  {
+        let map = [Good, Evil]
+            .iter()
+            .cloned()
+            .map(|alignment| (alignment, Vec::new()))
+            .collect();
+        supers
+            .iter()
+            .filter(|&s| s.sidekick.is_some())
+            .fold(map, |mut map, s| {
+                let value = map.entry(s.alignment).or_default();
+                value.push((*s.sidekick).as_ref().unwrap());
+                map
+            })
+    }
+}

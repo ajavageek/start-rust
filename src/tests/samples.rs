@@ -1,10 +1,12 @@
-use crate::model::{Group, Super};
+use crate::model::{Alignment::{Evil, Good}, Group, Super};
 
 pub(in crate::tests) fn batman<'a>() -> Super<'a> {
     Super {
         super_name: "Batman",
         real_name: "Bruce Wayne",
         power: 50,
+        sidekick: Box::from(Some(robin())),
+        alignment: Good,
     }
 }
 
@@ -13,6 +15,8 @@ pub(in crate::tests) fn superman<'a>() -> Super<'a> {
         super_name: "Superman",
         real_name: "Clark Kent",
         power: 100,
+        sidekick: Box::from(None),
+        alignment: Good,
     }
 }
 
@@ -21,6 +25,8 @@ pub(in crate::tests) fn kid_flash<'a>() -> Super<'a> {
         super_name: "Kid Flash",
         real_name: "Wally West",
         power: 40,
+        sidekick: Box::from(None),
+        alignment: Good,
     }
 }
 
@@ -29,6 +35,8 @@ pub(in crate::tests) fn robin<'a>() -> Super<'a> {
         super_name: "Robin",
         real_name: "Dick Grayson",
         power: 20,
+        sidekick: Box::from(None),
+        alignment: Good,
     }
 }
 
@@ -37,6 +45,8 @@ pub(in crate::tests) fn wonder_woman<'a>() -> Super<'a> {
         super_name: "Wonder Woman",
         real_name: "Diana Prince",
         power: 95,
+        sidekick: Box::from(None),
+        alignment: Good,
     }
 }
 
@@ -45,6 +55,8 @@ pub(in crate::tests) fn flash<'a>() -> Super<'a> {
         super_name: "Flash",
         real_name: "Barry Allen",
         power: 80,
+        sidekick: Box::from(Some(kid_flash())),
+        alignment: Good,
     }
 }
 
@@ -53,6 +65,8 @@ pub(in crate::tests) fn aquaman<'a>() -> Super<'a> {
         super_name: "Aquaman",
         real_name: "Arthur Curry",
         power: 40,
+        sidekick: Box::from(None),
+        alignment: Good,
     }
 }
 
@@ -61,6 +75,8 @@ pub(in crate::tests) fn cyborg<'a>() -> Super<'a> {
         super_name: "Cyborg",
         real_name: "Victor Stone",
         power: 60,
+        sidekick: Box::from(None),
+        alignment: Good,
     }
 }
 
@@ -83,6 +99,8 @@ pub(in crate::tests) fn catman<'a>() -> Super<'a> {
         super_name: "Catman",
         real_name: "Thomas Blake",
         power: 60,
+        sidekick: Box::from(None),
+        alignment: Evil,
     }
 }
 
@@ -91,6 +109,8 @@ pub(in crate::tests) fn deadshot<'a>() -> Super<'a> {
         super_name: "Catman",
         real_name: "Floyd Lawton",
         power: 40,
+        sidekick: Box::from(None),
+        alignment: Evil,
     }
 }
 
@@ -99,6 +119,8 @@ pub(in crate::tests) fn scandal<'a>() -> Super<'a> {
         super_name: "Scandal",
         real_name: "Scandal Savage",
         power: 50,
+        sidekick: Box::from(None),
+        alignment: Evil,
     }
 }
 
@@ -107,6 +129,8 @@ pub(in crate::tests) fn rag_doll<'a>() -> Super<'a> {
         super_name: "Rag Doll",
         real_name: "Peter Merkel Jr",
         power: 60,
+        sidekick: Box::from(None),
+        alignment: Evil,
     }
 }
 
